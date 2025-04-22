@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha RLB</title>
+    <link rel="stylesheet" href="css/runas.css">
+</head>
+<body>
+    <form autocomplete="off">
+        <h1>Informações</h1>
+        <table id="informações">
+            <tr>
+                <th>Nome</th>
+                <td class="inputText"><input type="text" id="nome"></td>
+            </tr>
+            <tr>
+                <th>Tamanho</th>
+                <td class="inputText"><input type="number" id="tamanho"></td>
+                <th>MT</th>
+                <td id="mt">+0</td>
+            </tr>
+            <tr>
+                <th>Idade</th>
+                <td class="inputText"><input type="number" id="idade"></td>
+            </tr>
+            <tr>
+                <th>Raça</th>
+                <td class="inputText"><input type="text" id="raca"></td>
+            </tr>
+            <tr>  
+                <th>Classe</th>
+                <td><select id="classes" onchange="mostrarSubClasse(this.value)">
+                    <option value="reforço">Reforço</option>
+                    <option value="ampliação">Ampliação</option>
+                    <option value="invocação">Invocação</option>
+                    <option value="aflição">Aflição</option>
+                </select></td>
+            </tr>
+            <tr>
+                <th>Sub-Classe</th>
+                <td><select id="subclasses">
+                    <option value="caminho da espada">Caminho da Espada</option>
+                    <option value="caminho do escudo">Caminho do Escudo</option>
+                    <option value="caminho da magia">Caminho da Magia</option>
+                </select></td>
+            </tr>
+            
+        </table>
+
+        <h1>Atributos</h1>
+        <table id="atributos">
+            <tr>
+                <th>FÍSICO</th>
+                <td><input type="number" value="7" id="fisico"></td>
+                <td>Força</td>
+                <td><input type="number" value="0" id="forca"></td>
+                <td>Destreza</td>
+                <td><input type="number" value="0" id="destreza"></td>
+                <td>Vitalidade</td>
+                <td><input type="number" value="0" id="vitalidade"></td>
+            </tr>
+            <tr>
+                <th>MENTAL</th>
+                <td><input type="number" value="7" id="mental"></td>
+                <td>Inteligência</td>
+                <td><input type="number" value="0" id="inteligencia"></td>
+                <td>Conhecimento</td>
+                <td><input type="number" value="0" id="conhecimento"></td>
+                <td>Social</td>
+                <td><input type="number" value="0" id="social"></td>
+            </tr>
+            <tr>
+                <th>MÍSTICO</th>
+                <td><input type="number" value="7" id="mistico"></td>
+                <td>Fé</td>
+                <td><input type="number" value="0" id="fe"></td>
+                <td>Poder</td>
+                <td><input type="number" value="0" id="poder"></td>
+                <td>Sorte</td>
+                <td><input type="number" value="0" id="sorte"></td>
+            </tr>
+        </table>
+
+        <h1>Status</h1>
+        <table>
+            <tr>
+                <th class="infoText">Status</th>
+                <th class="infoText">Valor</th>
+                <th class="infoText">Outro</th>
+            </tr>
+            <tr>
+                <th>PV</th>
+                <td id="pv"></td>
+                <td><input type="number" id="pvOutro" value="0"></td>
+            </tr>
+            <tr>
+                <th>PA</th>
+                <td id="pa"></td>
+                <td><input type="number" id="paOutro" value="0"></td>
+            </tr>
+            <tr>
+                <th>PE</th>
+                <td id="pe"></td>
+                <td><input type="number" id="peOutro" value="0"></td>
+            </tr>
+            <tr>
+                <th>Sanidade</th>
+                <td id="sanidade"></td>
+                <td><input type="number" id="sanidadeOutro" value="0"></td>
+            </tr>
+            <tr>
+                <th>Orações</th>
+                <td id="oracoes"></td>
+                <td><input type="number" id="oracoesOutro" value="0"></td>
+            </tr>
+            <tr>
+                <th>Pecados</th>
+                <td id="pecados"></td>
+                <td><input type="number" id="pecadosOutro" value="0"></td>
+            </tr>
+            <tr>
+                <th>Vontade</th>
+                <td id="vontade"></td>
+                <td><input type="number" id="vontadeOutro" value="0"></td>
+            </tr>
+            <tr>
+                <th>Percepção</th>
+                <td id="percepcao"></td>
+                <td><input type="number" id="percepcaoOutro" value="0"></td>
+            </tr>
+            <tr>
+                <th>Deslocamento</th>
+                <td id="deslocamento"></td>
+                <td><input type="number" id="deslocamentoOutro" value="0"></td>
+            </tr>
+            <tr>
+                <th>Defesa Física</th>
+                <td id="defesaFisica"></td>
+                <td><input type="number" id="defesaFisicaOutro" value="0"></td>
+            </tr>
+            <tr>
+                <th>Defesa Mágica</th>
+                <td id="defesaMagica"></td>
+                <td><input type="number" id="defesaMagicaOutro" value="0"></td>
+            </tr>
+        </table>
+    </form>
+    <script src="js/characterSheet.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+@import url('https://fonts.cdnfonts.com/css/eunomia');
+        body {
+            background-color: black;
+            color: white;
+            margin-left: 100px;
+            margin-right: 100px;
+            font-size: large;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        p {
+            font-size: 20px;
+            line-height: 1.5;
+            margin: 0px 0;
+        }
+
+        h1, h2 {
+            font-family: 'Eunomia', sans-serif;
+            margin-bottom: 10px;
+            margin-top: 60px;
+        }
+
+        h1 {
+            font-size: 100px;
+            line-height: normal;
+            text-align: center;
+            color: rgb(253, 255, 149);
+            margin: auto;
+        }
+
+        h2 {
+            font-size: 50px;
+        }
+
+        hr {
+            height: 1px;
+            background-color: rgb(253, 255, 149);
+            margin: 20px -100px;
+            border-top: 3px solid #bbb;
+
+        }
+        
+        span, strong {
+            color: rgb(253, 255, 149);
+            font-weight: bold;
+        }
+
+        q {
+            font-style: italic;
+            color: rgb(243, 255, 187);
+            font-size: 75%;
+            margin: 20px 0;
+        }
+
+        blockquote {
+            border: 2px solid rgb(253, 255, 149);
+            background-color: rgba(255, 255, 255, 0.096);
+            padding: 10px;
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        a {
+            color: rgb(204, 149, 255); 
+            font-weight: bold;
+        }
+
+        img {
+            width: 40%;
+            height: auto;
+            margin: 20px 0;
+        }
