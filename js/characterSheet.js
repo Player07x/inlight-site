@@ -5,9 +5,11 @@ document.querySelectorAll("input").forEach(input => {
     });
 });
 
+
 window.onload = function() {
     atualizarFicha();
 }
+
 
 let informacoes = {
     nome: "",
@@ -28,11 +30,13 @@ let informacoes = {
     vinculo: ""
 }
 
+
 let atributosPrimarios = {
     fisico: 0,
     mental: 0,
     mistico: 0
 };
+
 
 let atributosSecundario = {
     forca: 0,
@@ -45,6 +49,7 @@ let atributosSecundario = {
     poder: 0,
     sorte: 0
 }
+
 
 let statusMax = {
     pv: 0,
@@ -60,6 +65,7 @@ let statusMax = {
     defesaMagica: 0
 };
 
+
 let statusAtual = {
     pv: 0,
     pa: 0,
@@ -68,6 +74,7 @@ let statusAtual = {
     oracoes: 0,
     pecados: 0
 };
+
 
 let statusOutro = {
     pv: 0,
@@ -83,45 +90,51 @@ let statusOutro = {
     defesaMagica: 0
 };
 
+
 function setMT() {
+
     if(informacoes.tamanho < 0.3) {
-        informacoes.mt = -4 + Math.floor((informacoes.tamanho - 0.3) * 10);
+        return -4 + Math.floor((informacoes.tamanho - 0.3) * 10);
     } else if(informacoes.tamanho < 0.5) {
-        informacoes.mt = -3;
+        return  -3;
     }else if(informacoes.tamanho < 1) {
-        informacoes.mt = -2;
+        return -2;
     } else if(informacoes.tamanho < 1.5) {
-        informacoes.mt = -1;
+        return -1;
     } else if(informacoes.tamanho < 2) {
-        informacoes.mt = 0;
+        return 0;
     } else if(informacoes.tamanho < 3) {
-        informacoes.mt = 1;
+        return 1;
     } else if(informacoes.tamanho < 5) {
-        informacoes.mt = 2;
+        return 2;
     } else if(informacoes.tamanho < 8) {
-        informacoes.mt = 3;
+        return 3;
     } else if(informacoes.tamanho < 10) {
-        informacoes.mt = 4;
+        return 4;
     } else if(informacoes.tamanho < 20) {
-        informacoes.mt = 5;
+        return 5;
     } else if(informacoes.tamanho < 30) {
-        informacoes.mt = 6;
+        return 6;
     } else if(informacoes.tamanho < 40) {
-        informacoes.mt = 7;
+        return 7;
     } else if(informacoes.tamanho < 50) {
-        informacoes.mt = 8;
+        return 8;
     } else if(informacoes.tamanho < 75) {
-        informacoes.mt = 9;
+        return 9;
     } else if(informacoes.tamanho <= 100) {
-        informacoes.mt = 10;
+        return 10;
     } else {
-        informacoes.mt = 11 + Math.floor((informacoes.tamanho - 100) / 50);
+        return 10 + Math.ceil((informacoes.tamanho - 100) / 50);
     }
+
 }
 
+
 function setStatus() {
+
     informacoes.nome = document.getElementById("nome").value;
     informacoes.tamanho = Number(document.getElementById("tamanho").value);
+    informacoes.mt = Number(setMT());
     informacoes.idade = Number(document.getElementById("idade").value);
     /* informacoes.carma = Number(document.getElementById("carma").value);
     informacoes.raca = document.getElementById("raca").value;
@@ -133,16 +146,20 @@ function setStatus() {
     informacoes.essencias = Number(document.getElementById("essencias").value);
     */
 
-    setMT();
 }
 
+
 function setAtributosPrimarios() {
+
     atributosPrimarios.fisico = Number(document.getElementById("fisico").value);
     atributosPrimarios.mental = Number(document.getElementById("mental").value);
     atributosPrimarios.mistico = Number(document.getElementById("mistico").value);
+
 }
 
+
 function setAtributosSecundario() {
+
     atributosSecundario.forca = Number(document.getElementById("forca").value);
     atributosSecundario.destreza = Number(document.getElementById("destreza").value);
     atributosSecundario.vitalidade = Number(document.getElementById("vitalidade").value);
@@ -152,9 +169,12 @@ function setAtributosSecundario() {
     atributosSecundario.fe = Number(document.getElementById("fe").value);
     atributosSecundario.poder = Number(document.getElementById("poder").value);
     atributosSecundario.sorte = Number(document.getElementById("sorte").value);
+
 }
 
+
 function setStatusOutro() {
+
     statusOutro.pv = Number(document.getElementById("pvOutro").value);
     statusOutro.pa = Number(document.getElementById("paOutro").value);
     statusOutro.pe = Number(document.getElementById("peOutro").value);
@@ -166,9 +186,12 @@ function setStatusOutro() {
     statusOutro.deslocamento = Number(document.getElementById("deslocamentoOutro").value);
     statusOutro.defesaFisica = Number(document.getElementById("defesaFisicaOutro").value);
     statusOutro.defesaMagica = Number(document.getElementById("defesaMagicaOutro").value);
+
 }
 
+
 function setStatusMax() {
+
     statusMax.pv = atributosSecundario.vitalidade * 4 + Number(informacoes.mt >= 0 ? atributosPrimarios.fisico * (informacoes.mt + 1) : atributosPrimarios.fisico + informacoes.mt) + statusOutro.pv;
     statusMax.pa = atributosSecundario.poder + atributosPrimarios.mistico + statusOutro.pa;
     statusMax.pe = atributosSecundario.poder + 1 + statusOutro.pe;
@@ -185,15 +208,19 @@ function setStatusMax() {
 }
 
 function setStatusAtual() {
+
     statusAtual.pv = statusMax.pv;
     statusAtual.pa = statusMax.pa;
     statusAtual.pe = statusMax.pe;
     statusAtual.sanidade = statusMax.sanidade;
     statusAtual.oracoes = statusMax.oracoes;
     statusAtual.pecados = statusMax.pecados;
+
 }
 
+
 function escreverFicha() {
+
     document.getElementById("pv").innerHTML = statusAtual.pv;
     document.getElementById("pa").innerHTML = statusAtual.pa;
     document.getElementById("pe").innerHTML = statusAtual.pe;
@@ -205,21 +232,27 @@ function escreverFicha() {
     document.getElementById("deslocamento").innerHTML = statusMax.deslocamento + " m";
     document.getElementById("defesaFisica").innerHTML = statusMax.defesaFisica;
     document.getElementById("defesaMagica").innerHTML = statusMax.defesaMagica;
-    document.getElementById("mt").innerHTML = informacoes.mt;
+    document.getElementById("mt").innerHTML = informacoes.mt;    
+
 }
 
+
 function atualizarFicha() {
+
+    setStatus();
     setAtributosPrimarios();
     setAtributosSecundario();
     setStatusOutro();
     setStatusMax();
     setStatusAtual();
-    setStatus();
 
     escreverFicha();
+
 }
 
+
 function mostrarSubClasse(value) {
+
     if(value == "reforço") {
         document.getElementById("subclasses").innerHTML = "<option value='caminho da espada'>Caminho da Espada</option>"+
         "<option value='caminho do escudo'>Caminho do Escudo</option>"+
@@ -238,4 +271,5 @@ function mostrarSubClasse(value) {
         "<option value='tormenta mental'>Tormenta Mental</option>"+
         "<option value='tormenta espiritual'>Tormenta Espiritual</option>";
     }
+
 }
